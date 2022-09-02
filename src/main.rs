@@ -5,7 +5,7 @@ use my_telemetry::MyTelemetryContext;
 #[tokio::main]
 async fn main() {
     // let settings = SettingsModel::load(".reachpay").await;
-    let grpc = OrdersFlowsGrpcClient::new("http://192.168.1.9:5961".to_string()).await;
+    let grpc = OrdersFlowsGrpcClient::new("http://192.168.1.9:8090".to_string()).await;
     let candles = grpc.get_all_candles(true, &MyTelemetryContext::new()).await;
 
     let cache = CandleHistoryCache::new();
